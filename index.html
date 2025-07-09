@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>F1StackMind</title>
+</head>
+
+<body class="bg-neutral-900 font-grotesk text-white">
+
+    <header class="py-4 md:px-10 md:py-6 backdrop-blur-lg bg-neutral-900/70 border-b border-neutral-800">
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-bold tracking-widest text-white hover:text-neutral-300 transition">
+                F1StackMind
+            </a>
+
+            <!-- Hamburger button (hidden on desktop) -->
+            <button id="menu-btn" class="block md:hidden text-white focus:outline-none">
+                <!-- Simple hamburger icon -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Navigation -->
+            <nav id="nav-menu" class="absolute top-[72px] left-0 w-full bg-neutral-900/95 border-t border-neutral-800 px-6 py-4 
+           md:static md:flex md:items-center md:space-x-8 md:w-auto md:bg-transparent md:border-none md:p-0
+           transition-all duration-300 ease-in-out transform origin-top 
+           scale-y-0 opacity-0 invisible md:opacity-100 md:scale-y-100 md:visible md:transform-none">
+
+                <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                    <li><a href="#" class="text-lg text-neutral-300 hover:text-white transition">Home</a></li>
+                    <li><a href="#" class="text-lg text-neutral-300 hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-lg text-neutral-300 hover:text-white transition">Mission & Vision</a>
+                    </li>
+                    <li><a href="#" class="text-lg text-neutral-300 hover:text-white transition">Events</a></li>
+                    <li><a href="#" class="text-lg text-neutral-300 hover:text-white transition">Officers</a></li>
+                    <li class="md:hidden">
+                        <!-- Mobile Join Us Button -->
+                        <a href="#"
+                            class="block w-full text-center px-6 py-2 text-lg font-semibold border border-white rounded-xl hover:bg-white hover:text-black transition-all duration-300">
+                            Join Us
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Desktop Join Us Button -->
+            <a href="#"
+                class="hidden md:inline-block ml-6 px-6 py-2 text-lg font-semibold border border-white rounded-xl hover:bg-white hover:text-black transition-all duration-300">
+                Join Us
+            </a>
+        </div>
+    </header>
+
+    <main class="">
+        <section id="home"
+            class="bg-neutral-900 text-white min-h-[calc(100vh-80px)] flex items-center px-6 py-16 md:py-0">
+            <div
+                class="max-w-screen-xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 w-full">
+
+                <!-- Left: Text Content -->
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 tracking-tight">
+                        Fueling Innovation Through Technology
+                    </h1>
+                    <p class="text-lg md:text-xl text-neutral-400 mb-6">
+                        F1StackMind is more than a tech org — we're a community of forward-thinkers, coders, and
+                        builders shaping the future.
+                    </p>
+                    <a href="#"
+                        class="inline-block px-6 py-3 text-lg font-semibold border border-white rounded-xl hover:bg-white hover:text-black transition-all duration-300">
+                        Learn More
+                    </a>
+                </div>
+
+                <!-- Right: Hero Image -->
+                <div class="flex-1">
+                    <img src="assets/img/F1 STACKMIND.png" alt="Main Visual"
+                        class="w-full max-w-md mx-auto object-contain" />
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="bg-neutral-950 text-white py-24 px-4 relative overflow-hidden">
+            <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 items-center gap-16 relative z-10">
+
+                <!-- Left: Image -->
+                <div class="relative">
+                    <img src="assets/img/mainpic.png" alt="About F1StackMind"
+                        class="w-full max-w-md mx-auto object-contain rounded-2xl shadow-lg shadow-white/10" />
+                    <!-- Glow Effect (Optional) -->
+                    <div
+                        class="absolute -inset-2 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-indigo-500/10 blur-2xl rounded-full">
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="text-center md:text-left">
+                    <div
+                        class="mb-4 inline-flex items-center gap-2 px-4 py-1 border border-indigo-500/40 rounded-full bg-indigo-500/10 text-sm tracking-wide text-indigo-300 uppercase">
+                        <svg class="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 1 1-4.21 19.21A10 10 0 0 1 12 2z"></path>
+                        </svg>
+                        About Us
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl font-extrabold leading-snug tracking-tight mb-6">
+                        Meet the Minds Behind the Stack
+                    </h2>
+
+                    <p class="text-lg text-neutral-400 leading-relaxed mb-6">
+                        F1StackMind is more than just a tech org — it's a bold movement. We're a crew of developers,
+                        designers, and innovators working together to push tech boundaries through learning,
+                        collaboration, and community impact.
+                    </p>
+
+                    <p class="text-lg text-neutral-400 leading-relaxed">
+                        Whether you're into front-end magic, AI wizardry, or full-stack sorcery — this is your place to
+                        thrive, grow, and break barriers.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Optional Gradient Accent -->
+            <div
+                class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-indigo-600/20 via-pink-600/10 to-transparent rounded-full blur-3xl pointer-events-none z-0">
+            </div>
+        </section>
+
+        <section id="mission-vision" class="bg-neutral-900 text-white py-24 px-4">
+            <div class="max-w-screen-xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Our Mission & Vision</h2>
+                <p class="text-neutral-400 text-lg max-w-2xl mx-auto">
+                    We’re not just about code — we're about cultivating minds, empowering innovation, and shaping the
+                    future of tech.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-screen-xl mx-auto">
+
+                <!-- Mission -->
+                <div
+                    class="bg-neutral-800 p-8 rounded-2xl border border-indigo-500/30 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+                    <div class="mb-4">
+                        <span
+                            class="inline-block px-4 py-1 rounded-full bg-indigo-600/20 text-indigo-300 text-sm font-semibold tracking-wide">
+                            🚀 Mission
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Empowering Tech-Driven Futures</h3>
+                    <p class="text-neutral-400 leading-relaxed">
+                        To build a community where aspiring innovators can learn, collaborate, and turn their passion
+                        for technology into real-world impact through hands-on projects, mentorship, and creative
+                        problem-solving.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div
+                    class="bg-neutral-800 p-8 rounded-2xl border border-pink-500/30 shadow-lg hover:shadow-pink-500/20 transition-all duration-300">
+                    <div class="mb-4">
+                        <span
+                            class="inline-block px-4 py-1 rounded-full bg-pink-600/20 text-pink-300 text-sm font-semibold tracking-wide">
+                            🌌 Vision
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Shaping Tomorrow’s Innovators</h3>
+                    <p class="text-neutral-400 leading-relaxed">
+                        To become a beacon for tech excellence — where the boldest thinkers, dreamers, and coders thrive
+                        together, inspire change, and push the boundaries of possibility.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="events" class="bg-neutral-950 text-white py-24 px-4">
+            <div class="max-w-screen-xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Upcoming Events</h2>
+                <p class="text-neutral-400 text-lg max-w-2xl mx-auto">
+                    From workshops to hackathons — stay up-to-date with F1StackMind’s exciting lineup of tech-powered
+                    events.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-screen-xl mx-auto">
+
+                <!-- Event Card -->
+                <div
+                    class="bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700 rounded-2xl p-6 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+                    <span class="text-indigo-400 font-semibold text-sm uppercase tracking-widest">July 15, 2025</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">AI & Innovation Workshop</h3>
+                    <p class="text-neutral-400 mb-6">
+                        Dive into the world of artificial intelligence with hands-on sessions and real-world use cases.
+                    </p>
+                    <a href="#"
+                        class="inline-block px-5 py-2 border border-white rounded-lg text-sm font-medium hover:bg-white hover:text-black transition-all duration-300">
+                        Learn More
+                    </a>
+                </div>
+
+                <!-- Event Card -->
+                <div
+                    class="bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700 rounded-2xl p-6 shadow-lg hover:shadow-pink-500/20 transition-all duration-300">
+                    <span class="text-pink-400 font-semibold text-sm uppercase tracking-widest">August 5, 2025</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">Tech Career Expo</h3>
+                    <p class="text-neutral-400 mb-6">
+                        Network with professionals, get your resume reviewed, and explore tech career pathways.
+                    </p>
+                    <a href="#"
+                        class="inline-block px-5 py-2 border border-white rounded-lg text-sm font-medium hover:bg-white hover:text-black transition-all duration-300">
+                        View Details
+                    </a>
+                </div>
+
+                <!-- Event Card -->
+                <div
+                    class="bg-gradient-to-br from-neutral-800 to-neutral-900 border border-neutral-700 rounded-2xl p-6 shadow-lg hover:shadow-green-500/20 transition-all duration-300">
+                    <span class="text-green-400 font-semibold text-sm uppercase tracking-widest">September 10,
+                        2025</span>
+                    <h3 class="text-2xl font-bold mt-2 mb-4">Mini Hackathon</h3>
+                    <p class="text-neutral-400 mb-6">
+                        Challenge yourself in a 12-hour sprint of coding, problem-solving, and teamwork.
+                    </p>
+                    <a href="#"
+                        class="inline-block px-5 py-2 border border-white rounded-lg text-sm font-medium hover:bg-white hover:text-black transition-all duration-300">
+                        Join Hack
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="officers" class="bg-neutral-900 text-white py-24 px-4">
+            <div class="max-w-screen-xl mx-auto text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Meet the Officers</h2>
+                <p class="text-neutral-400 text-lg max-w-2xl mx-auto">
+                    The hierarchy that keeps F1StackMind running smoothly.
+                </p>
+            </div>
+
+            <div class="flex flex-col items-center space-y-12">
+
+                <!-- Level 1 -->
+                <div
+                    class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                    <img src="assets/img/placeholder.jpg" alt="CIO"
+                        class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                    <div>
+                        <h3 class="text-xl font-bold">Bonnie Boy Franco III</h3>
+                        <p class="text-neutral-400 text-sm">Chief Information Officer</p>
+                    </div>
+                </div>
+
+                <!-- Level 2 -->
+                <div class="relative flex justify-center space-x-20">
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Arwin Clyde B. Simondac</h3>
+                            <p class="text-neutral-400 text-sm">Assistant Chief Information Officer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 3 -->
+                <div class="relative flex justify-center space-x-10">
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Rybelle V. Ramos</h3>
+                            <p class="text-neutral-400 text-sm">Secretary</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Shanelle Capalla</h3>
+                            <p class="text-neutral-400 text-sm">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level 4 -->
+                <div class="relative grid grid-cols-2 md:grid-cols-4 gap-6 pt-6">
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Arwin Clyde B. Simondac</h3>
+                            <p class="text-neutral-400 text-sm">System Development Project Manager</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Justine Dela Vega</h3>
+                            <p class="text-neutral-400 text-sm">Artifical intelligence Project Manager</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Amiel Castro</h3>
+                            <p class="text-neutral-400 text-sm">Cyber Security Project Manager</p>
+                        </div>
+                    </div>
+                    <div
+                        class="min-w-[220px] min-h-[220px] bg-neutral-800 border border-neutral-700 rounded-2xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform duration-300">
+                        <img src="assets/img/placeholder.jpg" alt="CIO"
+                            class="w-24 h-24 rounded-full object-cover border-4 border-white/10 shadow-md">
+                        <div>
+                            <h3 class="text-xl font-bold">Elgie Delos Reyes</h3>
+                            <p class="text-neutral-400 text-sm">Game Development Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
