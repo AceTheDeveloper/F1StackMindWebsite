@@ -14,3 +14,12 @@ menuBtn.addEventListener('click', () => {
         navMenu.classList.add('opacity-0', 'scale-y-0', 'invisible');
     }
 });
+
+
+// AOS
+
+AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+});
