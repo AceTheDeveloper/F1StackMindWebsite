@@ -23,3 +23,18 @@ AOS.init({
     once: true,
     offset: 100,
 });
+
+// Swiper
+
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000,
+    },
+});
