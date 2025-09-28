@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="shortcut icon" href="assets/img/F1 STACKMIND.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>F1StackMind - Congratulations</title>
+
+    <style>
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+            100% { opacity: 0; transform: scale(0) rotate(360deg); }
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            animation: sparkle 2s linear infinite;
+            font-size: 20px;
+        }
+
+        .confetti {
+            position: fixed;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .confetti:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            animation: confetti-fall 3s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 font-grotesk text-white overflow-x-hidden min-h-screen">
+    
+    <!-- Sparkles Container -->
+    <div id="sparkles" class="fixed inset-0 pointer-events-none z-10"></div>
+
+    <!-- Header -->
+    <div class="text-center py-12">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+            🎉 CONGRATULATIONS! 🎉
+        </h1>
+        <p class="text-lg md:text-xl text-neutral-400">Celebrating our new members!</p>
+    </div>
+
+    <!-- Winners Grid -->
+    <div class="container mx-auto px-4 pb-12">
+        <div class="flex justify-center my-6">
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search your name..." 
+            class="w-full max-w-md px-4 py-2 rounded-xl bg-white/10 text-white placeholder-neutral-400 border border-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+        />
+        </div>
+        <div id="winners-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            <!-- Winners will be dynamically generated here -->
+        </div>
+        
+        <!-- Celebration Button -->
+    </div>
+
+    <script>
+        // Your JSON data
+       const winnersData = {
+    list: [
+        { name: "Abdulkim, Rz-Mar P.", year: "1st Year" },
+        { name: "Auro, Dion Ryan", year: "2nd Year" },
+        { name: "Barcebas, Yvan Justine P.", year: "2nd Year" },
+        { name: "Bruna, Charlene Mae", year: "2nd Year" },
+        { name: "Casibual, Dwayne Reigne", year: "3rd Year" },
+        { name: "Clarite, Ian Dave C.", year: "2nd Year" },
+        { name: "Francisco, Einmar Dave", year: "1st Year" },
+        { name: "Fuerte, Lara Joy Celestial", year: "1st Year" },
+        { name: "Fundal, Henry G.", year: "1st Year" },
+        { name: "Gabutin, Ellie Franz", year: "2nd Year" },
+        { name: "Gayem, Vince", year: "3rd Year" },
+        { name: "Gustilo Jr., Alex Reyes", year: "2nd Year" },
+        { name: "Jalbuena, Dian Joyce A.", year: "1st Year" },
+        { name: "Latorilla, Alexa Mimi", year: "2nd Year" },
+        { name: "Marquilencia, Mariane", year: "2nd Year" },
+        { name: "Pedrosa, Justin", year: "2nd Year" },
+        { name: "Reyes Jr., Renante V.", year: "2nd Year" },
+        { name: "Rivera, Luegi S.", year: "2nd Year" },
+        { name: "Rodriguez, Lars Albert M.", year: "2nd Year" },
+        { name: "Rovillos, Kylee Mar Melendez", year: "1st Year" },
+        { name: "Roxas, Adrian C.", year: "1st Year" },
+        { name: "Ruiz, Kenshin Entero", year: "1st Year" },
+        { name: "Sale, Nazzer Samuel D.", year: "3rd Year" },
+        { name: "Salazar, Vincent Paul A.", year: "1st Year" },
+        { name: "Santos, Mark Lawrence C.", year: "1st Year" },
+        { name: "Sayo, Clark Eldine G.", year: "3rd Year" },
+        { name: "Sioson, Eritch Jhun U.", year: "2nd Year" }
+    ]
+};
+        // Function to get icon and colors based on rank
+
+
+        // Function to extract name from list item
+        function extractName(listItem) {
+            // Remove the number and period from the beginning
+            return listItem.replace(/^\d+\.\s*/, '');
+        }
+
+        // Function to generate winner cards
+        // Function to generate winner cards
+function generateWinners(winnersList) {
+    if (!Array.isArray(winnersList)) {
+        console.error("generateWinners expected an array but got:", winnersList);
+        return;
+    }
+
+    const winnersGrid = document.getElementById('winners-grid');
+    winnersGrid.innerHTML = ''; // Clear grid before rendering
+
+    winnersList.forEach((winner, index) => {
+    const rank = index + 1;
+    const winnerCard = document.createElement('div');
+    winnerCard.className = `
+        bg-gradient-to-br from-white/10 to-white/5
+        border border-white/20
+        rounded-2xl p-2
+        text-center
+        transition-all duration-300
+        hover:bg-white/20
+        hover:-translate-y-2
+        hover:shadow-2xl hover:shadow-white/10
+        backdrop-blur-md
+    `;
+    winnerCard.style.animationDelay = `${index * 0.1}s`;
+    winnerCard.classList.add('animate-fade-in-up');
+
+        winnerCard.innerHTML = `
+            <div class="text-3xl mb-3 text-yellow-400 drop-shadow-lg">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <div class="name text-base font-semibold text-white leading-tight">${winner.name}</div>
+            <div class="year text-sm text-neutral-400 mt-1 italic">${winner.year}</div>
+        `;
+
+
+    winnersGrid.appendChild(winnerCard);
+});
+
+}
+
+// Initialize everything when page loads
+window.addEventListener('load', async () => {
+    try {
+        const response = await fetch('list.json');
+        const data = await response.json();
+
+        console.log("Loaded from JSON:", data);
+
+        // ✅ Ensure data.list exists and is an array
+        if (Array.isArray(data.list)) {
+            console.log(data.list);
+            generateWinners(data.list);
+        } else {
+            console.warn("No list found in JSON, falling back to embedded data.");
+            generateWinners(winnersData.list);
+        }
+    } catch (error) {
+        console.error("Failed to load list.json, using fallback.", error);
+        generateWinners(winnersData.list);
+    }
+
+    // Start continuous effects
+    setInterval(createSparkle, 500);
+    setInterval(createConfetti, 300);
+
+    // Initial celebration
+    setTimeout(createCelebration, 1000);
+});
+
+        // Sparkle and confetti effects
+        function createSparkle() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = '✨';
+            
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.top = Math.random() * 100 + 'vh';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            sparkle.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            
+            sparklesContainer.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 4000);
+        }
+
+        function createCelebration() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createSparkle, i * 100);
+                setTimeout(createConfetti, i * 50);
+            }
+        }
+
+        // Initialize everything when page loads
+        window.addEventListener('load', () => {
+            generateWinners();
+            
+            // Start continuous effects
+            setInterval(createSparkle, 500);
+            setInterval(createConfetti, 300);
+            
+            // Initial celebration
+            setTimeout(createCelebration, 1000);
+        });
+
+        // Add CSS for fade-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fade-in-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .animate-fade-in-up {
+                animation: fade-in-up 0.6s ease-out forwards;
+                opacity: 0;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Search filter function
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                const cards = document.querySelectorAll('#winners-grid > div');
+
+                cards.forEach(card => {
+                    const name = card.querySelector('.name').textContent.toLowerCase();
+                    const year = card.querySelector('.year').textContent.toLowerCase();
+
+                    if (name.includes(query) || year.includes(query)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+    </script>
+
+    <!-- Optional: Load from external JSON file -->
+    <script>
+        // Alternative: Load from external JSON file
+        async function loadWinnersFromFile() {
+            try {
+                const response = await fetch('list.json');
+                const data = await response.json();
+                // Use data.list instead of winnersData.list
+                console.log('Loaded from file:', data);
+            } catch (error) {
+                console.log('Using embedded data instead');
+            }
+        }
+
+        setupSearch();
+    </script>
+</body>
+</html>
